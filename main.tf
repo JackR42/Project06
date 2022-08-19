@@ -16,3 +16,4 @@ resource "azurerm_sql_server" "example" {
   tags = {
     env = "dev"
   }
+}
