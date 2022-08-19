@@ -28,7 +28,6 @@ resource "azurerm_mssql_server" "example" {
   
 resource "azurerm_mssql_database" "example" {
   name                = "dba"
-  resource_group_name = azurerm_resource_group.example.name
   server_id         = azurerm_mssql_server.example.id
 }
 
