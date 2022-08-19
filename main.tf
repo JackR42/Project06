@@ -20,14 +20,15 @@ resource "azurerm_mssql_server" "example" {
   version                      = "12.0"
   administrator_login          = "admindba"
   administrator_login_password = "ABCabc123.42"
-
-  resource "azurerm_sql_database" "example" {
-  name                = "dba"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
-  server_name         = azurerm_mssql_server.example.name
   
   tags = {
     env = "dev"
   }
+} 
+  
+resource "azurerm_sql_database" "example" {
+  name                = "dba"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+  server_name         = azurerm_mssql_server.example.name
 }
