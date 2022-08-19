@@ -20,6 +20,7 @@ steps:
   displayName: 'Run a multi-line script'
 
 - task: TerraformTaskV3@3
+  displayName: TF_Init
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -28,3 +29,10 @@ steps:
     backendAzureRmStorageAccountName: 'saproject06421433911'
     backendAzureRmContainerName: 'cproject06421433911'
     backendAzureRmKey: 'main.tfstate'
+    
+- task: TerraformTaskV3@3
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    commandOptions: '-output: main.tfplan'
+    environmentServiceNameAzureRM: 'SPN_Project06'
