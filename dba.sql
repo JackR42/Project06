@@ -20,7 +20,7 @@ go
  
 create procedure s42.p42 
 as
-select * from f1
+select * from s42.f42
 go
  
 execute s42.p42
