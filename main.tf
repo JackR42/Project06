@@ -40,3 +40,10 @@ resource "azurerm_sql_firewall_rule" "example" {
   start_ip_address    = "0.0.0.0"
   end_ip_address      = "0.0.0.0"
 }
+resource "azurerm_sql_firewall_rule" "example" {
+  name                = "FirewallRule2"
+  resource_group_name = azurerm_resource_group.example.name
+  server_name         = azurerm_mssql_server.example.name
+  start_ip_address    = "91.205.194.1"
+  end_ip_address      = "91.205.194.1"
+}
