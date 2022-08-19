@@ -45,7 +45,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    commandOptions: '-output=main.tfplan'
+    commandOptions: '-out=main.tfplan'
     environmentServiceNameAzureRM: 'SPN_Project06'
 
 - task: TerraformTaskV3@3
