@@ -34,7 +34,7 @@ steps:
     backendAzureRmContainerName: 'cproject06421433911'
     backendAzureRmKey: 'main.tfstate'
     
-  - task: TerraformTaskV3@3
-    inputs:
-      provider: 'azurerm'
-      command: 'validate'
+- task: TerraformTaskV3@3
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
