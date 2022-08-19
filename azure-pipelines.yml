@@ -4,6 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
+
 - main
 
 pool:
@@ -17,3 +18,13 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- task: TerraformTaskV3@3
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'SPN_Project06'
+    backendAzureRmResourceGroupName: 'S2-RG-Project06'
+    backendAzureRmStorageAccountName: 'saproject06421433911'
+    backendAzureRmContainerName: 'cproject06421433911'
+    backendAzureRmKey: 'main.tfstate'
