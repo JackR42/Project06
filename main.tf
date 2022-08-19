@@ -1,11 +1,9 @@
-# main.tf
-
 resource "azurerm_resource_group" "example" {
   name     = "S2-RG-Project06"
   location = "West Europe"
 }
 
-resource "azurerm_sql_server" "example" {
+resource "azurerm_mssql_server" "example" {
   name                         = "sqlproject06421433911"
   resource_group_name          = azurerm_resource_group.example.name
   location                     = azurerm_resource_group.example.location
