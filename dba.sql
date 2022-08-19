@@ -1,27 +1,43 @@
+-- Idempotent
+
+/* Destroy */
+if (OBJECT_ID('s42.f42') IS NOT NULL) drop function [s42].[f42]
+if (OBJECT_ID('s42.p42') IS NOT NULL) drop procedure [s42].[p42]
+if (OBJECT_ID('s42.v42') IS NOT NULL) drop view [s42].[v42]
+if (OBJECT_ID('s42.t42') IS NOT NULL) drop table [s42].[t42]
+if (SCHEMA_ID('s42') IS NOT NULL) drop schema [s42]
+go
+
 create schema s42
 go
+
 create table s42.t42(
-  id int primary key not null
-  , description char(32) null
+	ID integer primary key
+	, Description sysname
 )
-insert into s42.t42 values(42, '42')
-insert into s42.t42 values(911, '911')
-insert into s42.t42 values(1433, '1433')
 go
- 
-create view s42.v42 as select * from t1
+
+insert into s42.t42 values(1, '42')
+insert into s42.t42 values(2, '911')
+insert into s42.t42 values(3, '1433')
 go
- 
+
+create view s42.v42
+as
+  select * from s42.t42
+go
+
 create function s42.f42()
-returns table
+  RETURNS TABLE
 as
-return select * from s42.v42
-go
- 
-create procedure s42.p42 
+  RETURN
+    select * from s42.v42
+GO
+
+create or alter procedure s42.p42
 as
-select * from s42.f42
+  select * from s42.f42()
 go
- 
-execute s42.p42
+
+exec s42.p42
 go
