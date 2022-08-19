@@ -57,7 +57,7 @@ steps:
     environmentServiceNameAzureRM: 'SPN_Project06'
 
 - task: SqlAzureDacpacDeployment@1
-  displayName: TF_SQL
+  displayName: TF_SQL1
   inputs:
     azureSubscription: 'SPN_Project06'
     AuthenticationType: 'server'
@@ -66,5 +66,18 @@ steps:
     SqlUsername: 'admindba'
     SqlPassword: 'ABCabc123.42'
     deployType: 'SqlTask'
-    SqlFile: 'dba.sql'
+    SqlFile: 'dba01.sql'
+    IpDetectionMethod: 'AutoDetect'
+
+- task: SqlAzureDacpacDeployment@1
+  displayName: TF_SQL2
+  inputs:
+    azureSubscription: 'SPN_Project06'
+    AuthenticationType: 'server'
+    ServerName: 'sqlproject06421433911.database.windows.net'
+    DatabaseName: 'dba'
+    SqlUsername: 'admindba'
+    SqlPassword: 'ABCabc123.42'
+    deployType: 'SqlTask'
+    SqlFile: 'dba02.sql'
     IpDetectionMethod: 'AutoDetect'
