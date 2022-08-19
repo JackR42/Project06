@@ -45,4 +45,13 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'plan'
+    commandOptions: '-output=main.tfplan'
+    environmentServiceNameAzureRM: 'SPN_Project06'
+
+- task: TerraformTaskV3@3
+  displayName: TF_Apply
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    commandOptions: 'main.tfplan'
     environmentServiceNameAzureRM: 'SPN_Project06'
