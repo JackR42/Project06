@@ -36,14 +36,14 @@ resource "azurerm_mssql_database" "example" {
 resource "azurerm_mssql_firewall_rule" "example1" {
   name                = "FirewallRule1"
   resource_group_name = azurerm_resource_group.example.name
-  server_name         = azurerm_mssql_server.example.name
+  server_id           = azurerm_mssql_server.example.id
   start_ip_address    = "0.0.0.0"
   end_ip_address      = "0.0.0.0"
 }
 resource "azurerm_mssql_firewall_rule" "example2" {
   name                = "FirewallRule2"
   resource_group_name = azurerm_resource_group.example.name
-  server_name         = azurerm_mssql_server.example.name
+  server_id           = azurerm_mssql_server.example.id
   start_ip_address    = "94.209.108.55"
   end_ip_address      = "94.209.108.55"
 }
