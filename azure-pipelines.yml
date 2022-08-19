@@ -31,6 +31,8 @@ steps:
     backendAzureRmKey: 'main.tfstate'
     
 - task: TerraformTaskV3@3
+  displayName: TF_Validate
   inputs:
     provider: 'azurerm'
     command: 'validate'
+    
