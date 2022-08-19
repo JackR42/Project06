@@ -44,8 +44,5 @@ steps:
   displayName: TF_Plan
   inputs:
     provider: 'azurerm'
-- task: AzureAppServiceSettings@1
-  inputs:
-    appName: 
     command: 'plan'
-    
+    environmentServiceNameAzureRM: 'SPN_Project06'
