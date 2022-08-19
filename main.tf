@@ -1,3 +1,13 @@
+# main.tf
+
+provider "azurerm" {
+  features {}
+}
+
+terraform {
+  backend "azurerm" {}
+}
+
 resource "azurerm_resource_group" "example" {
   name     = "S2-RG-Project06"
   location = "West Europe"
